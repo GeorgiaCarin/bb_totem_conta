@@ -7,7 +7,10 @@ import { Controller, useForm } from 'react-hook-form'
 
 import {z} from 'zod'
 import {zodResolver} from '@hookform/resolvers/zod'
-import { Box, TextField } from '@mui/material'
+
+import { Input } from '../../../components/input'
+
+
 
 type props = {
     setSection : React.Dispatch<React.SetStateAction<number>>
@@ -20,6 +23,8 @@ const dataSchema = z.object({
 
     }) 
 export const StepThree = ({setSection, section}:props) => {
+
+
     type FormData = z.infer<typeof dataSchema>;
 
     const {register, handleSubmit, formState: {errors}} = useForm<FormData>({
@@ -33,7 +38,7 @@ export const StepThree = ({setSection, section}:props) => {
             <h1 className=' text-bb-blue uppercase text-6xl font-semibold text-center mt-8' >Informe seus dados</h1>
             <div className=' flex flex-col flex-1 gap-8 mt-8'>
             <form onSubmit={handleSubmit(onSubmit)} className=' flex flex-col flex-1 gap-8 mt-4'>
-                <TextField  label="Nome" variant='' />
+                <Input />
                 <div className={`flex flex-col gap-0 text-bb-blue font-medium text-xl`}>
                     <label className="ml-4 font-semibold text-4xl" htmlFor="">Nome</label>
                     <input  className="p-4 text-white border-4 bg-transparent text-3xl border-bb-blue rounded-xl" placeholder="Insira seu Nome" type="text" {...register('nome')}/>

@@ -1,15 +1,92 @@
-type Props = {
-    classInput: string
-    text: string
-    placeHolder: string
-}
+import * as React from 'react';
+import TextField from '@mui/material/TextField';
+import { outlinedInputClasses } from '@mui/material/OutlinedInput';
+import Box from '@mui/material/Box';
+import { createTheme, ThemeProvider, Theme, useTheme } from '@mui/material/styles';
 
-export const Input = ({classInput, text, placeHolder}:Props) => {
-  
-    return (
-        <div className={` ${classInput} flex flex-col gap-0 text-bb-blue font-medium text-xl`}>
-            <label className="ml-4 font-semibold text-4xl" htmlFor="">{text}</label>
-            <input className="p-4 bg-black/70 text-white border-b-4 text-3xl border-bb-blue rounded-xl" placeholder={placeHolder} type="text" />
-        </div>
-    )
+const customTheme = (outerTheme: Theme) =>
+  createTheme({
+    palette: {
+      mode: outerTheme.palette.mode,
+    },
+    components: {
+      MuiTextField: {
+        styleOverrides: {
+          root: {
+            '--TextField-brandBorderColor': '#E0E3E7',
+            '--TextField-brandBorderHoverColor': '#B2BAC2',
+            '--TextField-brandBorderFocusedColor': '#6F7E8C',
+            '& label.Mui-focused': {
+              color: 'var(--TextField-brandBorderFocusedColor)',
+              
+            },
+          },
+        },
+      },
+      MuiOutlinedInput: {
+        styleOverrides: {
+          notchedOutline: {
+            borderColor: 'var(--TextField-brandBorderColor)',
+          },
+          root: {
+            [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
+              borderColor: 'var(--TextField-brandBorderHoverColor)',
+              
+            },
+            [`&.Mui-focused .${outlinedInputClasses.notchedOutline}`]: {
+              borderColor: 'var(--TextField-brandBorderFocusedColor)',
+            },
+          },
+        },
+      },
+      MuiFilledInput: {
+        styleOverrides: {
+          root: {
+            '&::before, &::after': {
+              borderBottom: '4px solid var(--TextField-brandBorderColor)',
+            },
+            '&:hover:not(.Mui-disabled, .Mui-error):before': {
+              borderBottom: '4px solid var(--TextField-brandBorderHoverColor)',
+            },
+            '&.Mui-focused:after': {
+              borderBottom: '4px solid var(--TextField-brandBorderFocusedColor)',
+            },
+          },
+        },
+      },
+      MuiInput: {
+        styleOverrides: {
+          root: {
+            '&::before': {
+              borderBottom: '4px solid var(--TextField-brandBorderColor)',
+            },
+            '&:hover:not(.Mui-disabled, .Mui-error):before': {
+              borderBottom: '4px solid var(--TextField-brandBorderHoverColor)',
+            },
+            '&.Mui-focused:after': {
+              borderBottom: '4px solid var(--TextField-brandBorderFocusedColor)',
+            },
+          },
+        },
+      },
+    },
+  });
+
+export const Input = () => {
+  const outerTheme = useTheme();
+
+  return (
+    <Box
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: { sm: '1fr 1fr 1fr' },
+        gap: 2,
+      }}
+    >
+      <ThemeProvider theme={customTheme(outerTheme)}>
+        <TextField label="Outlined" />
+      
+      </ThemeProvider>
+    </Box>
+  );
 }

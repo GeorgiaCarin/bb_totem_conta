@@ -7,7 +7,7 @@ import { StepThree } from "./step_three";
 
 
 export const Totem = () => {
-  const [Section, setSection] = useState<number>(1);
+  const [Section, setSection] = useState<number>(3);
 
 
 
