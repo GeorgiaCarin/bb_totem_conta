@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --yellow-bb: #FCFC30;
+  
+    --blue-bb: #2A66F2;
+  
+    --pink-bb: #FB5E84;
+  
+    --sky-blue-bb: #51DBF7;
+  
+    --gray-bb: #EDF6FA;
+  
+    --bg-yellow-bb: #FCFC60;
+  
+    --bg-blue-bb: #5A8BFF;
+  
+    --bg-pink-bb: #FD7999;
+
+  
+    }
+    .blue-button{
+      --primary-color: #5A8BFF;
+      --second-color: #2A66F2;
+      --text-color: #EDF6FA;
+      
+  
+    }
+    .pink-button{
+      --primary-color: #FD7999;
+      --second-color: #FB5E84;
+      --text-color: #EDF6FA;
+  
+    }
+
+
+    .yellow-layout{
+      --primary-color: #FCFC30;
+      --second-color: #2A66F2;
+      --active-button: #2A66F2;
+      --disabled-button: #5A8BFF;
+      --text-color: #222222;
+      --text-color-secondary: #EDF6FA;
+    }
+    .blue-layout{
+      --primary-color: #2A66F2;
+      --second-color: #FCFC30;
+      --active-button: #FCFC30
+      --disabled-button: #FCFC60;
+      --text-color: #EDF6FA;
+      --text-color-secondary: #222222;
+  
+    }
+    .btn-ylw{
+      @apply uppercase font-bold bg-bb-yellow border-bb-yellow border-4 px-12 py-3 text-bb-text-primary rounded-4xl  hover:text-white hover:bg-transparent transition duration-300
+    }
+    .btn-blue{
+      @apply uppercase font-bold bg-bb-lblue border-bb-lblue border-4 px-12 py-3 text-white rounded-4xl hover:border-4 hover:border-bb-lblue hover:text-black hover:bg-transparent transition duration-300 ease-in-out
+
+    }
+    .btn-disabled{
+      @apply uppercase font-bold bg-gray-300 px-12 py-3 text-bb-gray rounded-4xl 
+      
+    }
+    .div-view{
+      @apply border-4 border-black
+    }
+
+    .card{
+      @apply flex flex-row p-4 gap-2 bg-bb-lblue align-top items-center  rounded-md shadow-3xl w-96
+    }
+    .title-primary {
+      @apply text-4xl uppercase font-extrabold text-bb-secundary
+
+    }
+    .title-secundary {
+      @apply text-3xl font-medium uppercase text-bb-text-primary
+
+    }
+    .text-primary{
+      @apply text-xl font-medium py-0 text-bb-text-primary
+    }
+    
+    .text-shadow{
+      @apply drop-shadow-[3px_3px_rgba(42,102,242,1)]
+    }
+
+    
+  }
