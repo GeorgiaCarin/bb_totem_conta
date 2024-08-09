@@ -4,7 +4,11 @@ import { outlinedInputClasses } from '@mui/material/OutlinedInput';
 import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider, Theme, useTheme } from '@mui/material/styles';
 
-const customTheme = (outerTheme: Theme) =>
+type props = {
+  label: string
+  register: string
+}
+export const customTheme = (outerTheme: Theme) =>
   createTheme({
     palette: {
       mode: outerTheme.palette.mode,
@@ -13,11 +17,15 @@ const customTheme = (outerTheme: Theme) =>
       MuiTextField: {
         styleOverrides: {
           root: {
-            '--TextField-brandBorderColor': '#E0E3E7',
-            '--TextField-brandBorderHoverColor': '#B2BAC2',
-            '--TextField-brandBorderFocusedColor': '#6F7E8C',
-            '& label.Mui-focused': {
-              color: 'var(--TextField-brandBorderFocusedColor)',
+            '--TextField-brandBorderColor': '#2A66F2',
+            '--TextField-brandBorderHoverColor': '#2A66F2',
+            '--TextField-brandBorderFocusedColor': '#2A66F2',
+            '& label': {
+              color: '#2A66F2',
+              fontSize: '24px'
+
+
+              
               
             },
           },
@@ -26,67 +34,39 @@ const customTheme = (outerTheme: Theme) =>
       MuiOutlinedInput: {
         styleOverrides: {
           notchedOutline: {
-            borderColor: 'var(--TextField-brandBorderColor)',
+            borderColor: ' #2A66F2',
+            borderWidth: '4px',
+            borderRadius: '20px'
           },
           root: {
             [`&:hover .${outlinedInputClasses.notchedOutline}`]: {
-              borderColor: 'var(--TextField-brandBorderHoverColor)',
+              borderColor: ' #5A8BFF',
+              borderWidth: '4px',
+              borderRadius: '20px'
               
             },
             [`&.Mui-focused .${outlinedInputClasses.notchedOutline}`]: {
-              borderColor: 'var(--TextField-brandBorderFocusedColor)',
+              borderColor: ' #2A66F2',
+              borderWidth: '4px',
+              borderRadius: '20px',
+              fontSize: "22px",
+              margin: ''
             },
           },
         },
       },
-      MuiFilledInput: {
+      MuiInputBase: {
         styleOverrides: {
-          root: {
-            '&::before, &::after': {
-              borderBottom: '4px solid var(--TextField-brandBorderColor)',
-            },
-            '&:hover:not(.Mui-disabled, .Mui-error):before': {
-              borderBottom: '4px solid var(--TextField-brandBorderHoverColor)',
-            },
-            '&.Mui-focused:after': {
-              borderBottom: '4px solid var(--TextField-brandBorderFocusedColor)',
-            },
+          input: {
+            fontSize: '24px', // Ajuste o tamanho da fonte aqui
           },
+          adornedStart: {
+
+          }
         },
       },
-      MuiInput: {
-        styleOverrides: {
-          root: {
-            '&::before': {
-              borderBottom: '4px solid var(--TextField-brandBorderColor)',
-            },
-            '&:hover:not(.Mui-disabled, .Mui-error):before': {
-              borderBottom: '4px solid var(--TextField-brandBorderHoverColor)',
-            },
-            '&.Mui-focused:after': {
-              borderBottom: '4px solid var(--TextField-brandBorderFocusedColor)',
-            },
-          },
-        },
-      },
+
+      
+      
     },
   });
-
-export const Input = () => {
-  const outerTheme = useTheme();
-
-  return (
-    <Box
-      sx={{
-        display: 'grid',
-        gridTemplateColumns: { sm: '1fr 1fr 1fr' },
-        gap: 2,
-      }}
-    >
-      <ThemeProvider theme={customTheme(outerTheme)}>
-        <TextField label="Outlined" />
-      
-      </ThemeProvider>
-    </Box>
-  );
-}
