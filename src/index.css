@@ -70,10 +70,10 @@
     }
 
     .card{
-      @apply flex flex-row p-4 gap-2 bg-bb-lblue align-top items-center  rounded-md shadow-3xl w-96
+      @apply flex flex-col  align-top items-center bg-white rounded-md shadow-3xl w-[280px] h-[415px]
     }
     .title-primary {
-      @apply text-4xl uppercase font-extrabold text-bb-secundary
+      @apply text-4xl uppercase font-extrabold text-black
 
     }
     .title-secundary {
@@ -81,7 +81,7 @@
 
     }
     .text-primary{
-      @apply text-xl font-medium py-0 text-bb-text-primary
+      @apply text-xl font-medium py-0 text-black
     }
     
     .text-shadow{

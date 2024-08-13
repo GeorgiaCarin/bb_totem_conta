@@ -134,16 +134,16 @@ export const StepThree = ({setSection, section}:props) => {
                                             mask='999.999.999-99'
                                             {...field}
                                         >
-                                            {(inputProps:) => (
+                                            
                                                 <TextField
-                                                    {...inputProps}
+                                         
                                                     label="CPF"
                                                     size="small"
                                                     error={!!errors.cpf}
                                                     fullWidth
                                                     helperText={errors.cpf?.message}
                                                 />
-                                            )}
+                                           
                                         </InputMask>
                                     </ThemeProvider>
                                 )}

@@ -1,19 +1,20 @@
+import seguranca from '../../assets/segurança.png'
+
 type Props = {
     title: string,
     text:string
+    type: string, 
 
-    type: string
 } 
 
 export const Card = ({title,text,type}: Props) => {
 
     return (
         <div className={`${type}`}>
-            <div className='rounded-xl w-20 h-20 bg-bb-yellow text-center  text-5xl lg:text-3xl uppercase'>{}</div>
-            <div className="bg-bb-yellow h-8 w-1"></div>
-            <div>
-                <div className=' uppercase text-bb-yellow text-md text-bb-lyellow font-extrabold' >{title}</div>
-                <div className='font-medium text-white text-sm lg:text-lg  '>{text}</div>
+            <img className='' src={seguranca} alt="" />
+            <div className= ' text-left p-6'>
+                <div className=' capitalize text-black text-2xl text-bb-lyellow font-extrabold  pb-2' >{title}</div>
+                <div className='font-normal text-black text-[15px] '>{text}</div>
             </div>
   
         

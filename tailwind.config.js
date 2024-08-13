@@ -34,6 +34,7 @@ export default {
       },
       backgroundImage: {
         primary: "url('./src/assets/background.png')",
+        vertical: "url('./src/assets/bg_vertical.png')",
         secondary: "url('./src/assets/background2.png')",
         conta: "url('./src/assets/bg_conta_inicio.png')",
         dados: "url('./src/assets/bg_dados.png')"
