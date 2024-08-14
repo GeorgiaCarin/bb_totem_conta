@@ -17,11 +17,11 @@ export const TotemVertical = () => {
 
   if (Section === 2) {
  
-    return <StepTwo setSection={setSection} section={Section} />;
+    return <StepTwo setSection={setSection} />;
 
   } if(Section == 3) {
   
-    return <StepThree setSection={setSection} section={Section} />
+    return <StepThree setSection={setSection} />
     
   }
 

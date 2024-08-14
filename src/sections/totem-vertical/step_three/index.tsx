@@ -1,36 +1,40 @@
 
-import { Menu } from '../../../components/menu'
 
 import '../../../index.css'
 
-import { Controller, useForm } from 'react-hook-form'
-import { Box, TextField } from '@mui/material'
+import { useForm } from 'react-hook-form'
 import {z} from 'zod'
 import {zodResolver} from '@hookform/resolvers/zod'
-import {  ThemeProvider, Theme, useTheme } from '@mui/material/styles';
-import {  customTheme } from '../../../components/input'
-import  InputMask from 'react-input-mask'
+
+import InputMask from 'react-input-mask'
 import { api_data } from '../../../api/contabb'
+import { ModalDefault } from '../../../components/modal';
+import { useState } from 'react';
 
 type props = {
     setSection : React.Dispatch<React.SetStateAction<number>>
-    section: number
+
 }
 const dataSchema = z.object({
-        nome: z.string(),
-        email: z.string(),
-        cpf: z.string().min(11,'CPF inválido').max(11),
-        whatsapp: z.string().min()
+        nome: z.string({ errorMap: () => ({ message: "Nome necessário" }) }).min(4),
+        email: z.string({ errorMap: () => ({ message: "email necessário" }) }).min(4),
+        cpf: z.string({ errorMap: () => ({ message: "CPF necessário" }) }).min(11,'CPF inválido'),
+        whatsapp: z.string({ errorMap: () => ({ message: "Número necessário" }) }).min(11)
 
     }) 
-export const StepThree = ({setSection, section}:props) => {
- 
-    const outerTheme = useTheme(); 
+export const StepThree = ({setSection}:props) => {
+    const [show, setShow] = useState<boolean>(false)
+    const handleOpen = () => {
+        setShow(true)
+    }
+
+
     type FormData = z.infer<typeof dataSchema>;
 
-    const {register,control, handleSubmit, formState: {errors}} = useForm<FormData>({
+    const {register, handleSubmit, formState: {errors}} = useForm<FormData>({
         resolver: zodResolver(dataSchema)
     })
+
     const onSubmit = async (data:FormData) => {
         console.log(data)
         try{
@@ -41,7 +45,10 @@ export const StepThree = ({setSection, section}:props) => {
                 phone: data.whatsapp
     
             })
-            console.log(response.status)
+            if(response.status == 200) {
+                handleOpen()
+            }
+            
 
         }catch(err) {
             console.log('erro ao validar dados',err)
@@ -49,151 +56,31 @@ export const StepThree = ({setSection, section}:props) => {
     }
 
     return (
-        <div className='flex flex-col bg-dados bg-cover w-screen h-screen gap-4 p-16'>
-    
-            <h1 className=' text-bb-blue uppercase text-6xl font-semibold text-center mt-8' >Informe seus dados</h1>
-            <div className=' flex flex-col flex-1 gap-8 mt-8'>
-            <form onSubmit={handleSubmit(onSubmit)} className=' flex flex-col flex-1 gap-8 mt-4'>
-            
-                <div className={`flex flex-col gap-0 text-bb-blue font-medium text-xl`}>
-
-                    <Controller
-                        name="nome"
-                        control={control}
-                        rules={{ required: "nome is required" }}
-                        render={({ field }) => (
-                            <>
-                                <ThemeProvider theme={customTheme(outerTheme)}>
-
-                                    <TextField
-                                        {...field}                                
-                                        type="text"
-                                        label="Nome"
-                                       
-                                        error={!!errors.nome}
-                                        fullWidth
-                                        helperText={
-                                            errors.nome
-                                            ? errors.nome.message
-                                            : ""
-                                        }
-                         
-                                    />
-                                </ThemeProvider>
-                            
-                            </>
-                            
-                            
-
-                       
-                        )}
-                    />
+        <div className='flex flex-col w-full  bg-formulario h-full bg-cover  gap-4 p-16'>
+            <div className= 'flex w-full flex-col mt-24 text-center items-center'>
+                <div>
+                    <h1 className='title-primary'>Vantagens para você</h1>
+                    <p className='text-primary'>Insira seus dados e envie o formulário para criar sua conta agora mesmo!</p>
                 </div>
-                <div className={`flex flex-col gap-0 text-bb-blue font-medium text-xl`}>
-                <Controller
-                        name="email"
-                        control={control}
-                        rules={{ required: "email is required", }}
-                        render={({ field }) => (
-                            <>
-                                <ThemeProvider theme={customTheme(outerTheme)}>
-                             
-                                    <TextField
-                                        {...field}                                
-                                        type="text"
-                                        label="Email"
-                                        
-                                        error={!!errors.email}
-                                        fullWidth
-                                        helperText={
-                                            errors.email
-                                            ? errors.email.message
-                                            : ""
-                                        }
-                                        
-                                        
-                                        />
-                            
-                                </ThemeProvider>
-                            
-                            </>
-                            
-                            
-                       
-                        )}
-                    />
-                </div>
-                <div className='flex gap-4 flex-col lg:flex-row '>
-                    <div className={`flex flex-col flex-1 uppercase gap-0 text-bb-blue font-medium text-xl`}>
-                    <Controller
-                                name="cpf"
-                                control={control}
-                                render={({ field }) => (
-                                    <ThemeProvider theme={customTheme(outerTheme)}>
-                                        <InputMask
-                                            mask='999.999.999-99'
-                                            {...field}
-                                        >
-                                            
-                                                <TextField
-                                         
-                                                    label="CPF"
-                                                    size="small"
-                                                    error={!!errors.cpf}
-                                                    fullWidth
-                                                    helperText={errors.cpf?.message}
-                                                />
-                                           
-                                        </InputMask>
-                                    </ThemeProvider>
-                                )}
-                            />
-                    </div>
-                    <div className={`flex flex-col flex-1 gap-0 text-bb-blue font-medium text-xl`}>
-                    <Controller
-                        name="whatsapp"
-                        control={control}
-                        rules={{ required: "nome is required" }}
-                        render={({ field }) => (
-                            <>
-                                <ThemeProvider theme={customTheme(outerTheme)}>
-
-                                    <TextField
-                                        {...field}                                
-                                        type="text"
-                                        label="WhatsApp"
-                                       
-                                        error={!!errors.email}
-                                        fullWidth
-                                        helperText={
-                                            errors.whatsapp
-                                            ? errors.whatsapp.message
-                                            : ""
-                                        }
-                                 
-                                        
-                                    />
-                                </ThemeProvider>
-                            
-                            </>
-                            
-                            
-                       
-                        )}
-                    /> 
+                
+                
+                <form onSubmit={handleSubmit(onSubmit)} className=' flex flex-col flex-1 gap-2 mt-4'>
+                
+                        <input className={`${errors.nome ? 'border-red-600 border-4 placeholder:text-red-400': '' } w-[700px] h-16 text-2xl p-4`} placeholder={errors.nome? errors.nome.message: 'Nome'} {...register('nome')} />
                         
-                    </div>
-                    
-                    
-                </div>
-                <input className='btn-blue w-64 place-self-center'  type='submit' value='Validar Dados'/>
-            </form>
-
+                        <input className={`${errors.email ? 'border-red-600 border-4 placeholder:text-red-400 ': '' }w-[700px] h-16 text-2xl p-4`}  placeholder={errors.email? errors.email.message: 'Email'}   {...register('email')}/>
+                        <InputMask className={`${errors.cpf ? 'border-red-600 border-4 placeholder:text-red-400 ': '' } w-[700px] h-16 text-2xl p-4`} placeholder={errors.cpf? errors.cpf.message: 'CPF'} mask="999.999.999-99"  {...register('cpf')}/>
+                        <InputMask className={`${errors.whatsapp ? 'border-red-600 border-4 placeholder:text-red-400 ': '' }w-[700px] h-16 text-2xl p-4`} placeholder={errors.whatsapp? errors.whatsapp.message: 'WhatsApp'} mask="(99)99999-9999"  {...register('whatsapp')}/>
+                                
+                        
+                    <input className='btn-blue place-self-center mt-6' type='submit' value='ENVIAR'/>
+                </form>
             </div>
-            <div  className=''>
-          
-
-            </div>
+   
+                <ModalDefault open={show} setSection={setSection}/>
+    
+            
+         
      
         </div>
     )

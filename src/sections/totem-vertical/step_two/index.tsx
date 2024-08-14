@@ -7,6 +7,8 @@ import semCustos from '../../../assets/semCustos.png'
 import cashback from '../../../assets/CashBack.png'
 import shopping from '../../../assets/shoppingBB.png'
 import facilidade from '../../../assets/Facilidade.png'
+import { Button } from '../../../components/button'
+
 type props = {
     setSection : React.Dispatch<React.SetStateAction<number>>
 //     section: number
@@ -56,8 +58,8 @@ export const StepTwo = ({setSection}:props) => {
         <div className=' flex flex-col w-full  bg-vertical h-full bg-cover justify-between'>
             <div className= 'flex w-full flex-col gap-5 mt-24 text-center items-center'>
                 <div>
-                    <h1 className='font-black text-6xl text-bb-blue p-10  capitalize'>Vantagens para você</h1>
-                    <p className='font-normal text-3xl w-[763px]'>Abra sua conta corrente completa, totalmente digital, e simplifique sua vida financeira.</p>
+                    <h1 className='title-primary'>Vantagens para você</h1>
+                    <p className='text-primary'>Abra sua conta corrente completa, totalmente digital, e simplifique sua vida financeira.</p>
                 </div>
                 <div className='inline-grid grid-cols-3 gap-6 '>
                         {data.map((item) => (
@@ -66,6 +68,7 @@ export const StepTwo = ({setSection}:props) => {
                             </div>
                         ))}
                 </div>
+                <Button setSection={setSection} text='ABRIR SUA CONTA DIGITAL AGORA' style='btn-blue' />
             </div>
         </div>
     )

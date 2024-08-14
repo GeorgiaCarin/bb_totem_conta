@@ -78,7 +78,7 @@ export const MediaBackground = ({setSection}:props) => {
 
   return (
     <>
-      <div className="absolute z-1 top-0 left-0 w-100 h-100"></div>
+      <div className="absolute z-1 top-0 left-0"></div>
       <video ref={videoRefs[0]} className=" absolute z-0 w-100 h-100 object-cover opacity-100 ease-in-out" autoPlay muted />
       <video ref={videoRefs[1]} className="absolute z-0 w-100 h-100 object-cover opacity-100 ease-in-out" autoPlay muted />
       <img ref={imageRef} className="absolute z-0 w-100 h-100 object-cover opacity-100 ease-in-out" alt="Background" />

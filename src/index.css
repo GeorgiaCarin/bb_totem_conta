@@ -6,7 +6,7 @@
   :root {
     --yellow-bb: #FCFC30;
   
-    --blue-bb: #2A66F2;
+    --blue-bb: #465eff;
   
     --pink-bb: #FB5E84;
   
@@ -55,10 +55,10 @@
   
     }
     .btn-ylw{
-      @apply uppercase font-bold bg-bb-yellow border-bb-yellow border-4 px-12 py-3 text-bb-text-primary rounded-4xl  hover:text-white hover:bg-transparent transition duration-300
+      @apply uppercase text-4xl font-bold bg-bb-yellow border-bb-lightyellow border-4 px-12 py-3 hover:bg-bb-lightyellow text-black duration-300 ease-in-out
     }
     .btn-blue{
-      @apply uppercase font-bold bg-bb-lblue border-bb-lblue border-4 px-12 py-3 text-white rounded-4xl hover:border-4 hover:border-bb-lblue hover:text-black hover:bg-transparent transition duration-300 ease-in-out
+      @apply uppercase text-4xl font-bold bg-bb-blue border-bb-lblue border-4 px-12 py-3 hover:bg-bb-lblue text-white duration-300 ease-in-out
 
     }
     .btn-disabled{
@@ -73,7 +73,7 @@
       @apply flex flex-col  align-top items-center bg-white rounded-md shadow-3xl w-[280px] h-[415px]
     }
     .title-primary {
-      @apply text-4xl uppercase font-extrabold text-black
+      @apply font-black text-6xl text-bb-blue p-10  capitalize
 
     }
     .title-secundary {
@@ -81,7 +81,7 @@
 
     }
     .text-primary{
-      @apply text-xl font-medium py-0 text-black
+      @apply font-normal text-3xl w-[763px]
     }
     
     .text-shadow{

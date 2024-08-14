@@ -24,7 +24,10 @@ const dataSchema = z.object({
 
     }) 
 export const StepThree = ({setSection, section}:props) => {
- 
+    const [show,setShow] = useState<boolean>(false)
+    const handleClick = () => {
+        setShow(true)
+    } 
     const outerTheme = useTheme(); 
     type FormData = z.infer<typeof dataSchema>;
 
@@ -190,8 +193,8 @@ export const StepThree = ({setSection, section}:props) => {
             </form>
 
             </div>
-            <div  className=''>
-          
+            <div >
+                        
 
             </div>
      

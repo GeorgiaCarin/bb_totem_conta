@@ -1,21 +1,20 @@
-import { Backdrop, Button, Fade, Grid, Modal, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Fade, Modal } from "@mui/material";
 
+import qrcode from '../../assets/qrcode.png'
+import { Button } from "../button";
 type Props = {
   open: boolean;
-  handleClose: () => void;
-  title: string;
-  text: string;
+  setSection: React.Dispatch<React.SetStateAction<number>>
+
 };
 
-export const ModalDefault = ({ open, handleClose, title, text }: Props) => (
+export const ModalDefault = ({ open,setSection }: Props) => (
   <Modal
-    aria-labelledby="transition-modal-title"
-    aria-describedby="transition-modal-description"
+
     open={open}
-    onClose={handleClose}
+
     closeAfterTransition
-    slots={{ backdrop: Backdrop }}
+
     slotProps={{
       backdrop: {
         timeout: 500,
@@ -23,35 +22,21 @@ export const ModalDefault = ({ open, handleClose, title, text }: Props) => (
     }}
     sx={{
       border: "1px solid red",
+      width: '1080',
+      height: '1920'
     }}
   >
     <Fade in={open}>
-      <Box
-        sx={{
-          position: 'absolute' as const,
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: "400px",
-          bgcolor: 'background.paper',
-          borderRadius: 2,
-          boxShadow: 24,
-          p: 4,
-        }}
-      >
-        <Typography id="transition-modal-title" variant="h4" align="center">
-          {title}
-        </Typography>
-        <Typography id="transition-modal-description" sx={{ mt: 2 }} align="center">
-          {text}
-        </Typography>
-
-        <Grid container justifyContent="center" mt={1}>
-          <Button variant="contained" color="success" sx={{ width: "50%", padding: "10px" }} onClick={handleClose}>
-            Ok, entendi.
-          </Button>
-        </Grid>
-      </Box>
+      <div className=" flex flex-col items-center w-full h-full bg-qrcode bg-cover gap-16 text-center ">
+    
+                <div className="mt-24 items-center">
+                    <h1 className='title-primary text-bb-yellow'>Parabéns</h1>
+                    <p className='text-primary text-white leading-[40px]'>Agora aponte a câmera do seu celular para op QRCODE
+                    para iniciar a abertura de sua conta no Whatsapp.</p>
+                </div>
+                    <img className="w-[420px] border-[20px]" src={qrcode} alt="" />
+                    <Button text="CONCLUIR" setSection={setSection} style="btn-ylw" />
+      </div>
     </Fade>
   </Modal>
 )
