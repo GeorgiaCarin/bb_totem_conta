@@ -78,6 +78,7 @@ export const StepTwo = ({setSection}:props) => {
                                 <Card title={item.title} text={item.text} type='card' img={item.img_url}/>
                             </div>
                         ))}
+                        
                 </div>
                 <Button setSection={setSection} text='ABRIR SUA CONTA DIGITAL AGORA' style='btn-blue' />
             </div>

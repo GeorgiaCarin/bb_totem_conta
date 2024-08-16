@@ -22,7 +22,7 @@ const dataSchema = z.object({
 
     }) 
 export const StepThree = ({setSection}:props) => {
-    const [time,setTime] = useState<boolean>(false)
+
     const handleOpen = () => {
         setSection((e) => e + 1)
     }
@@ -34,8 +34,10 @@ export const StepThree = ({setSection}:props) => {
     })
     
     const handleTime = useCallback(() => {
-        console.log('começando')
+        console.log('começando 2')
         setTimeout(() => {
+            alert('saindo da tela')
+
             setSection(1)
         }, 120000);
     },[setSection])
@@ -60,13 +62,10 @@ export const StepThree = ({setSection}:props) => {
             alert('erro ao validar dados'+ err)
         }
     }
-    useEffect(() => {
-       
-     handleTime()
-    },[handleTime])
+    
 
     return (
-        <div className='flex flex-col w-full  bg-formulario h-full bg-cover  gap-4 p-16 ' onFocus={handleTime} onClick={handleTime}>
+        <div className='flex flex-col w-full  bg-formulario h-full bg-cover  gap-4 p-16 ' onClick={handleTime}>
             
             <div className= 'flex w-full flex-col mt-24 text-center items-center'>
                 <div>
