@@ -27,7 +27,7 @@ export const ModalDefault = ({ open,setSection }: Props) => (
     }}
   >
     <Fade in={open}>
-      <div className=" flex flex-col items-center w-full h-full bg-qrcode bg-cover gap-16 text-center ">
+      <div className=" flex flex-col items-center w-[1080px] h-[1920px] bg-qrcode bg-cover gap-16 text-center ">
     
                 <div className="mt-24 items-center">
                     <h1 className='title-primary text-bb-yellow'>Parabéns</h1>
@@ -35,7 +35,7 @@ export const ModalDefault = ({ open,setSection }: Props) => (
                     para iniciar a abertura de sua conta no Whatsapp.</p>
                 </div>
                     <img className="w-[420px] border-[20px]" src={qrcode} alt="" />
-                    <Button text="CONCLUIR" setSection={setSection} style="btn-ylw" />
+                    <button onClick={() =>setSection(1)} className="btn-ylw">CONCLUIR</button>
       </div>
     </Fade>
   </Modal>

@@ -8,11 +8,11 @@ type props = {
 
 export const Background = ({setSection}:props) => {
   return (
-    <>
+    <div className=' w-full  toten:w-[1080px] toten:h-[1920px] bg-bb-yellow'>
       
       <MediaBackground setSection={setSection}/>
         
-      </>
+      </div>
   )
 
   

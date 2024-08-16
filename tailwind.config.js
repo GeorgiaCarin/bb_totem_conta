@@ -44,6 +44,13 @@ export default {
       },
       animation: {
         'bounce-slow': 'bounce 3s infinite'
+      }, 
+      screens: {
+        'tablet' : '640px',
+        'laptop': '1024px',
+        'tab7': '2000px',
+        'desktop': '1280px',
+        'toten': '1080px',
       }
       
     },

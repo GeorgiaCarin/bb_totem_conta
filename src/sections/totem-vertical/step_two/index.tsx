@@ -8,6 +8,7 @@ import cashback from '../../../assets/CashBack.png'
 import shopping from '../../../assets/shoppingBB.png'
 import facilidade from '../../../assets/Facilidade.png'
 import { Button } from '../../../components/button'
+import { useCallback, useEffect } from 'react'
 
 type props = {
     setSection : React.Dispatch<React.SetStateAction<number>>
@@ -53,9 +54,19 @@ const data : dataProps[] = [
     },
 ]
 export const StepTwo = ({setSection}:props) => {
+    const handleTime = useCallback(() => {
+        console.log('começando')
+        setTimeout(() => {
+            setSection(1)
+        }, 240000);
+    },[setSection])
+   
+    useEffect(() => {
+     handleTime()
+    },[handleTime])
     
     return (
-        <div className=' flex flex-col w-full  bg-vertical h-full bg-cover justify-between'>
+        <div className='  flex flex-col bg-vertical h-[1920px] bg-cover justify-between' onClick={handleTime}>
             <div className= 'flex w-full flex-col gap-5 mt-24 text-center items-center'>
                 <div>
                     <h1 className='title-primary'>Vantagens para você</h1>

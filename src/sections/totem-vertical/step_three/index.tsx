@@ -8,8 +8,7 @@ import {zodResolver} from '@hookform/resolvers/zod'
 
 import InputMask from 'react-input-mask'
 import { api_data } from '../../../api/contabb'
-import { ModalDefault } from '../../../components/modal';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react'
 
 type props = {
     setSection : React.Dispatch<React.SetStateAction<number>>
@@ -23,40 +22,52 @@ const dataSchema = z.object({
 
     }) 
 export const StepThree = ({setSection}:props) => {
-    const [show, setShow] = useState<boolean>(false)
+    const [time,setTime] = useState<boolean>(false)
     const handleOpen = () => {
-        setShow(true)
+        setSection((e) => e + 1)
     }
-
-
+    
     type FormData = z.infer<typeof dataSchema>;
-
+    
     const {register, handleSubmit, formState: {errors}} = useForm<FormData>({
         resolver: zodResolver(dataSchema)
     })
-
+    
+    const handleTime = useCallback(() => {
+        console.log('começando')
+        setTimeout(() => {
+            setSection(1)
+        }, 120000);
+    },[setSection])
     const onSubmit = async (data:FormData) => {
-        console.log(data)
+        console.log(JSON.stringify(data))
         try{
             const response = await api_data.post('/user',{
                 cpf: data.cpf,
                 email: data.email,
                 name: data.nome,
                 phone: data.whatsapp
-    
+                
             })
             if(response.status == 200) {
+                
                 handleOpen()
+                
             }
             
-
+            
         }catch(err) {
-            console.log('erro ao validar dados',err)
+            alert('erro ao validar dados'+ err)
         }
     }
+    useEffect(() => {
+       
+     handleTime()
+    },[handleTime])
 
     return (
-        <div className='flex flex-col w-full  bg-formulario h-full bg-cover  gap-4 p-16'>
+        <div className='flex flex-col w-full  bg-formulario h-full bg-cover  gap-4 p-16 ' onFocus={handleTime} onClick={handleTime}>
+            
             <div className= 'flex w-full flex-col mt-24 text-center items-center'>
                 <div>
                     <h1 className='title-primary'>Vantagens para você</h1>
@@ -66,7 +77,7 @@ export const StepThree = ({setSection}:props) => {
                 
                 <form onSubmit={handleSubmit(onSubmit)} className=' flex flex-col flex-1 gap-2 mt-4'>
                 
-                        <input className={`${errors.nome ? 'border-red-600 border-4 placeholder:text-red-400': '' } w-[700px] h-16 text-2xl p-4`} placeholder={errors.nome? errors.nome.message: 'Nome'} {...register('nome')} />
+                        <input className={`${errors.nome ? 'border-red-600 border-4 placeholder:text-red-400': '' } w-[700px] h-16 text-2xl p-4 `} placeholder={errors.nome? errors.nome.message: 'Nome'} {...register('nome')} />
                         
                         <input className={`${errors.email ? 'border-red-600 border-4 placeholder:text-red-400 ': '' }w-[700px] h-16 text-2xl p-4`}  placeholder={errors.email? errors.email.message: 'Email'}   {...register('email')}/>
                         <InputMask className={`${errors.cpf ? 'border-red-600 border-4 placeholder:text-red-400 ': '' } w-[700px] h-16 text-2xl p-4`} placeholder={errors.cpf? errors.cpf.message: 'CPF'} mask="999.999.999-99"  {...register('cpf')}/>
@@ -77,7 +88,7 @@ export const StepThree = ({setSection}:props) => {
                 </form>
             </div>
    
-                <ModalDefault open={show} setSection={setSection}/>
+           
     
             
          
