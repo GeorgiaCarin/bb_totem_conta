@@ -11,7 +11,7 @@ export const StepFour = ({ setSection}:props) => {
     },60000)
     
     return (
-        <div className=" flex flex-col items-center w-[1080px] h-[1920px] bg-qrcode bg-cover gap-16 text-center ">
+        <div className=" flex flex-col items-center bg-qrcode bg-cover gap-16 text-center ">
       
                   <div className="mt-24 items-center">
                       <h1 className='title-primary text-bb-yellow'>Parabéns</h1>

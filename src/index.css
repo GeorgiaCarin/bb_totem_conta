@@ -59,6 +59,7 @@
     }
     .btn-blue{
       @apply uppercase text-4xl font-bold bg-bb-blue border-bb-lblue border-4 px-12 py-3 hover:bg-bb-lblue text-white duration-300 ease-in-out
+      laptop:px-8 laptop:text-2xl 
 
     }
     .btn-disabled{
@@ -70,10 +71,12 @@
     }
 
     .card{
-      @apply flex flex-col  align-top items-center bg-white rounded-md shadow-3xl w-[280px] h-[415px]
+      @apply flex flex-col align-top items-center bg-white rounded-md shadow-3xl w-64 h-96 tablet:w-72 tablet:h-[480px]
+      toten:w-[280px] toten:h-[415px] 
     }
     .title-primary {
-      @apply font-black text-6xl text-bb-blue p-10  capitalize
+      @apply font-black text-6xl text-bb-blue p-10 capitalize
+      desktop:text-5xl desktop:p-2
 
     }
     .title-secundary {
@@ -81,7 +84,8 @@
 
     }
     .text-primary{
-      @apply font-normal text-3xl w-[763px]
+      @apply font-normal text-3xl mx-24 pb-4
+      desktop:text-2xl desktop:mx-12 tablet:mx-10 desktop:pb-2
     }
     
     .text-shadow{

@@ -9,6 +9,7 @@ import shopping from '../../../assets/shoppingBB.png'
 import facilidade from '../../../assets/Facilidade.png'
 import { Button } from '../../../components/button'
 import { useCallback, useEffect } from 'react'
+import { Footer } from '../../../components/footer'
 
 type props = {
     setSection : React.Dispatch<React.SetStateAction<number>>
@@ -54,33 +55,38 @@ const data : dataProps[] = [
     },
 ]
 export const StepTwo = ({setSection}:props) => {
-    const handleTime = useCallback(() => {
-        console.log('começando')
-        setTimeout(() => {
-            setSection(1)
-        }, 240000);
-    },[setSection])
+    // const handleTime = useCallback(() => {
+    //     console.log('começando')
+    //     setTimeout(() => {
+    //         setSection(1)
+    //     }, 240000);
+    // },[setSection])
    
-    useEffect(() => {
-     handleTime()
-    },[handleTime])
+    // useEffect(() => {
+    //  handleTime()
+    // },[handleTime])
     
     return (
-        <div className='  flex flex-col bg-vertical h-[1920px] bg-cover justify-between' onClick={handleTime}>
-            <div className= 'flex w-full flex-col gap-5 mt-24 text-center items-center'>
-                <div>
-                    <h1 className='title-primary'>Vantagens para você</h1>
-                    <p className='text-primary'>Abra sua conta corrente completa, totalmente digital, e simplifique sua vida financeira.</p>
+        <div className=' flex flex-col h-screen w-full bg-vertical bg-cover gap-0  ' >
+            <div className= ' h-full flex flex-1 w-full flex-col gap-5 desktop:gap-2 mt-24 desktop:mt-4 text-center items-center '>
+                <div >
+                    <h1 className='title-primary '>Vantagens para você</h1>
+                    <p className='text-primary '>Abra sua conta corrente completa, totalmente digital, e simplifique sua vida financeira.</p>
                 </div>
-                <div className='inline-grid grid-cols-3 gap-6 '>
+                <div className=' desktop:w-[100%] tablet:w-[100%] toten:w-auto tablet:overflow-auto tablet:pl-4 flex toten:inline-grid toten:grid-cols-3 gap-6 desktop:gap-4 desktop:flex desktop:overflow-auto desktop:pl-8'>
                         {data.map((item) => (
-                            <div>
+                            <div className=''>
                                 <Card title={item.title} text={item.text} type='card' img={item.img_url}/>
                             </div>
                         ))}
-                        
                 </div>
-                <Button setSection={setSection} text='ABRIR SUA CONTA DIGITAL AGORA' style='btn-blue' />
+                <Button setSection={setSection} text='ABRIR SUA CONTA DIGITAL AGORA' style='btn-blue m-2' />
+                
+            </div>
+
+            <div className=' flex-1 w-full content-end '>
+                <Footer style='' />
+
             </div>
         </div>
     )
