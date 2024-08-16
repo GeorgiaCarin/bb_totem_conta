@@ -9,6 +9,7 @@ import {zodResolver} from '@hookform/resolvers/zod'
 import InputMask from 'react-input-mask'
 import { api_data } from '../../../api/contabb'
 import { useCallback, useEffect, useState } from 'react'
+import { Footer } from '../../../components/footer'
 
 type props = {
     setSection : React.Dispatch<React.SetStateAction<number>>
@@ -33,14 +34,14 @@ export const StepThree = ({setSection}:props) => {
         resolver: zodResolver(dataSchema)
     })
     
-    const handleTime = useCallback(() => {
-        console.log('começando 2')
-        setTimeout(() => {
-            alert('saindo da tela')
+    // const handleTime = useCallback(() => {
+     
+    //     setTimeout(() => {
+  
 
-            setSection(1)
-        }, 120000);
-    },[setSection])
+    //         setSection(1)
+    //     }, 120000);
+    // },[setSection])
     const onSubmit = async (data:FormData) => {
         console.log(JSON.stringify(data))
         try{
@@ -59,15 +60,15 @@ export const StepThree = ({setSection}:props) => {
             
             
         }catch(err) {
-            alert('erro ao validar dados'+ err)
+            console.log('erro ao validar dados'+ err)
         }
     }
     
 
     return (
-        <div className='flex flex-col w-full  bg-formulario h-full bg-cover  gap-4 p-16 ' onClick={handleTime}>
+        <div className='flex flex-col w-full  bg-formulario h-full bg-cover  gap-4 p-16 ' >
             
-            <div className= 'flex w-full flex-col mt-24 text-center items-center'>
+            <div className= 'flex w-full flex-col mt-12  toten:mt-24  desktop:mt-10 text-center items-center'>
                 <div>
                     <h1 className='title-primary'>Vantagens para você</h1>
                     <p className='text-primary'>Insira seus dados e envie o formulário para criar sua conta agora mesmo!</p>
@@ -86,6 +87,9 @@ export const StepThree = ({setSection}:props) => {
                     <input className='btn-blue place-self-center mt-6' type='submit' value='ENVIAR'/>
                 </form>
             </div>
+                <div className=''>
+                    <Footer style="tablet:hidden desktop:" />
+                </div>
    
            
     
