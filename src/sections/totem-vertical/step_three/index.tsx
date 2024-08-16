@@ -34,15 +34,15 @@ export const StepThree = ({setSection}:props) => {
     })
     
     const handleTime = useCallback(() => {
-        console.log('começando 2')
+   
         setTimeout(() => {
-            alert('saindo da tela')
+
 
             setSection(1)
         }, 120000);
     },[setSection])
     const onSubmit = async (data:FormData) => {
-        console.log(JSON.stringify(data))
+
         try{
             const response = await api_data.post('/user',{
                 cpf: data.cpf,
@@ -59,7 +59,7 @@ export const StepThree = ({setSection}:props) => {
             
             
         }catch(err) {
-            alert('erro ao validar dados'+ err)
+            console.log('erro ao validar dados'+ err)
         }
     }
     
