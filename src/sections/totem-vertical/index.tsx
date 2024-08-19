@@ -8,7 +8,9 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import '../../index.css'
 import { StepFour } from "./step_four";
 export const TotemVertical = () => {
-  const [section, setSection] = useState<number>(4);
+  const [section, setSection] = useState<number>(1
+
+  );
   const Stepper = () => {
 
     if (section === 1) return <Background setSection={setSection} />;

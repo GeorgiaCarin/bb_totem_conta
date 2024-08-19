@@ -77,7 +77,8 @@ export const StepThree = ({setSection}:props) => {
                 
                 <form onSubmit={handleSubmit(onSubmit)} className=' flex flex-col flex-1 gap-2 mt-4'>
                 
-                        <input className={`${errors.nome ? 'border-red-600 border-4 placeholder:text-red-400': '' } w-[700px] h-16 text-2xl p-4 `} placeholder={errors.nome? errors.nome.message: 'Nome'} {...register('nome')} />
+                        <input className={`${errors.nome ? 'border-red-600 border-4 placeholder:text-red-400': '' } w-[700px] h-16 text-2xl p-4 `} 
+                        placeholder={errors.nome? errors.nome.message: 'Nome'} {...register('nome')} />
                         
                         <input className={`${errors.email ? 'border-red-600 border-4 placeholder:text-red-400 ': '' }w-[700px] h-16 text-2xl p-4`}  placeholder={errors.email? errors.email.message: 'Email'}   {...register('email')}/>
                         <InputMask className={`${errors.cpf ? 'border-red-600 border-4 placeholder:text-red-400 ': '' } w-[700px] h-16 text-2xl p-4`} placeholder={errors.cpf? errors.cpf.message: 'CPF'} mask="999.999.999-99"  {...register('cpf')}/>

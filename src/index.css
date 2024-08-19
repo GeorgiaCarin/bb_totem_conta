@@ -58,8 +58,8 @@
       @apply uppercase text-4xl font-bold bg-bb-yellow border-bb-lightyellow border-4 px-12 py-3 hover:bg-bb-lightyellow text-black duration-300 ease-in-out
     }
     .btn-blue{
-      @apply uppercase text-4xl font-bold bg-bb-blue border-bb-lblue border-4 px-12 py-3 hover:bg-bb-lblue text-white duration-300 ease-in-out
-      laptop:px-8 laptop:text-2xl 
+      @apply uppercase text-4xl font-bold bg-bb-blue border-bb-lblue border-4 px-12 py-4 hover:bg-bb-lblue text-white duration-300 ease-in-out
+      laptop:px-7 laptop:text-2xl desktop:text-2xl 2xdesktop:text-4xl 
 
     }
     .btn-disabled{
@@ -72,11 +72,11 @@
 
     .card{
       @apply flex flex-col align-top items-center bg-white rounded-md shadow-3xl w-64 h-96 tablet:w-72 tablet:h-[480px]
-      toten:w-[280px] toten:h-[415px] 
+      toten:w-[280px] toten:h-[415px] 2xdesktop:w-[480px] 2xdesktop:h-[700px] 
     }
     .title-primary {
-      @apply font-black text-6xl text-bb-blue p-10 capitalize
-      desktop:text-5xl desktop:p-2
+      @apply font-black text-6xl text-bb-blue p-8 laptop:p-8 capitalize
+      desktop:text-5xl desktop:p-2 laptop:pb-2 laptop:text-5xl 2xdesktop:text-7xl
 
     }
     .title-secundary {
@@ -84,8 +84,9 @@
 
     }
     .text-primary{
-      @apply font-normal text-3xl mx-24 pb-4
-      desktop:text-2xl desktop:mx-12 tablet:mx-10 desktop:pb-2
+      @apply font-normal text-3xl mx-24 pb-4 laptop:p-2
+      desktop:text-2xl laptop:text-2xl desktop:mx-12 tablet:mx-10 
+      2xdesktop:text-3xl
     }
     
     .text-shadow{

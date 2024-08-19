@@ -67,20 +67,22 @@ export const StepTwo = ({setSection}:props) => {
     // },[handleTime])
     
     return (
-        <div className=' flex flex-col h-screen w-full bg-vertical bg-cover gap-0  ' >
-            <div className= ' h-full flex flex-1 w-full flex-col gap-5 desktop:gap-2 mt-24 desktop:mt-4 text-center items-center '>
+        <div className=' flex flex-col h-screen w-full bg-vertical bg-cover gap-0 ' >
+            <div className= ' h-full flex flex-1 w-full flex-col gap-5 desktop:gap-2 2xdesktop:gap-10 mt-24 desktop:mt-2 2xdesktop:mt-16 text-center items-center '>
                 <div >
                     <h1 className='title-primary '>Vantagens para você</h1>
                     <p className='text-primary '>Abra sua conta corrente completa, totalmente digital, e simplifique sua vida financeira.</p>
                 </div>
-                <div className=' desktop:w-[100%] tablet:w-[100%] toten:w-auto tablet:overflow-auto tablet:pl-4 flex toten:inline-grid toten:grid-cols-3 gap-6 desktop:gap-4 desktop:flex desktop:overflow-auto desktop:pl-8'>
+                <div className=' desktop:w-[100%] tablet:w-[100%] toten:w-auto tablet:overflow-auto tablet:pl-4 
+                flex toten:inline-grid toten:grid-cols-3 gap-6 desktop:gap-4 desktop:flex desktop:overflow-auto 
+                2xdesktop:justify-start desktop:justify-center'>
                         {data.map((item) => (
                             <div className=''>
                                 <Card title={item.title} text={item.text} type='card' img={item.img_url}/>
                             </div>
                         ))}
                 </div>
-                <Button setSection={setSection} text='ABRIR SUA CONTA DIGITAL AGORA' style='btn-blue m-2' />
+                <Button setSection={setSection} text='ABRIR SUA CONTA DIGITAL AGORA' style='btn-blue m-2 ' />
                 
             </div>
 
