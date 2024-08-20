@@ -49,10 +49,10 @@ export default {
       screens: {
         'tablet' : '640px',
         'laptop': '1024px',
+        'toten': '1080px',
 
         'desktop': '1280px',
         '2xdesktop': '1920px',
-        'toten': '1080px',
       }
       
     },

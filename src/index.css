@@ -72,7 +72,7 @@
 
     .card{
       @apply flex flex-col align-top items-center bg-white rounded-md shadow-3xl w-64 h-96 tablet:w-72 tablet:h-[480px]
-      toten:w-[280px] toten:h-[415px] 2xdesktop:w-[480px] 2xdesktop:h-[700px] 
+      toten:w-[280px] toten:h-[415px] 2xdesktop:w-[480px] 2xdesktop:h-[640px] 
     }
     .title-primary {
       @apply font-black text-6xl text-bb-blue p-8 laptop:p-8 capitalize
