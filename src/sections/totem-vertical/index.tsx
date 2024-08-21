@@ -8,9 +8,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import '../../index.css'
 import { StepFour } from "./step_four";
 export const TotemVertical = () => {
-  const [section, setSection] = useState<number>(1
-
-  );
+  const [section, setSection] = useState<number>(1);
   const Stepper = () => {
 
     if (section === 1) return <Background setSection={setSection} />;
@@ -29,7 +27,7 @@ export const TotemVertical = () => {
 
     <TransitionGroup className='h-full '>
       <CSSTransition key={section} timeout={300} classNames="fade ">
-        {Stepper()}
+      <div className="w-full h-full">{Stepper()}</div>
       </CSSTransition>
     </TransitionGroup>
     </div>

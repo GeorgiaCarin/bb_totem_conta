@@ -66,23 +66,23 @@ export const StepThree = ({setSection}:props) => {
     
 
     return (
-        <div className='flex flex-col w-full  bg-formulario h-full bg-cover  gap-4 p-16 ' >
+        <div className='flex flex-col w-full  bg-formulario h-full bg-cover gap-4  laptop:justify-center' >
             
-            <div className= 'flex w-full flex-col mt-12  toten:mt-24  desktop:mt-10 text-center items-center'>
+            <div className= ' flex w-full flex-col tablet:mt-12 toten:mt-24  desktop:mt-0 text-center items-center'>
                 <div>
                     <h1 className='title-primary'>Vantagens para você</h1>
                     <p className='text-primary'>Insira seus dados e envie o formulário para criar sua conta agora mesmo!</p>
                 </div>
                 
                 
-                <form onSubmit={handleSubmit(onSubmit)} className=' flex flex-col flex-1 gap-2 mt-4'>
+                <form onSubmit={handleSubmit(onSubmit)} className=' flex flex-col flex-1 gap-2 desktop:gap-4 mt-4'>
                 
-                        <input className={`${errors.nome ? 'border-red-600 border-4 placeholder:text-red-400': '' } w-[700px] h-16 text-2xl p-4 `} 
+                        <input className={`${errors.nome ? 'border-red-600 border-4 placeholder:text-red-400': '' } w-[700px] desktop:w-[840px] h-16 text-2xl p-4 `} 
                         placeholder={errors.nome? errors.nome.message: 'Nome'} {...register('nome')} />
                         
-                        <input className={`${errors.email ? 'border-red-600 border-4 placeholder:text-red-400 ': '' }w-[700px] h-16 text-2xl p-4`}  placeholder={errors.email? errors.email.message: 'Email'}   {...register('email')}/>
-                        <InputMask className={`${errors.cpf ? 'border-red-600 border-4 placeholder:text-red-400 ': '' } w-[700px] h-16 text-2xl p-4`} placeholder={errors.cpf? errors.cpf.message: 'CPF'} mask="999.999.999-99"  {...register('cpf')}/>
-                        <InputMask className={`${errors.whatsapp ? 'border-red-600 border-4 placeholder:text-red-400 ': '' }w-[700px] h-16 text-2xl p-4`} placeholder={errors.whatsapp? errors.whatsapp.message: 'WhatsApp'} mask="(99)99999-9999"  {...register('whatsapp')}/>
+                        <input className={`${errors.email ? 'border-red-600 border-4 placeholder:text-red-400 ': '' }w-[700px] desktop:w-[840px] h-16 text-2xl p-4`}  placeholder={errors.email? errors.email.message: 'Email'}   {...register('email')}/>
+                        <InputMask className={`${errors.cpf ? 'border-red-600 border-4 placeholder:text-red-400 ': '' } w-[700px] desktop:w-[840px] h-16 text-2xl p-4`} placeholder={errors.cpf? errors.cpf.message: 'CPF'} mask="999.999.999-99"  {...register('cpf')}/>
+                        <InputMask className={`${errors.whatsapp ? 'border-red-600 border-4 placeholder:text-red-400 ': '' }w-[700px] desktop:w-[840px] h-16 text-2xl p-4`} placeholder={errors.whatsapp? errors.whatsapp.message: 'WhatsApp'} mask="(99)99999-9999"  {...register('whatsapp')}/>
                                 
                         
                     <input className='btn-blue place-self-center mt-6' type='submit' value='ENVIAR'/>

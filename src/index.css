@@ -72,7 +72,7 @@
 
     .card{
       @apply flex flex-col align-top items-center bg-white rounded-md shadow-3xl w-64 h-96 tablet:w-72 tablet:h-[480px]
-      toten:w-[280px] toten:h-[415px] 2xdesktop:w-[480px] 2xdesktop:h-[640px] 
+      toten:w-[280px] toten:h-[415px] 2xdesktop:w-[480px] 2xdesktop:h-full 
     }
     .title-primary {
       @apply font-black text-6xl text-bb-blue p-8 laptop:p-8 capitalize
@@ -92,25 +92,25 @@
     .text-shadow{
       @apply drop-shadow-[3px_3px_rgba(42,102,242,1)]
     }
-
+  }
     
-  }
-  .fade-enter {
-    opacity: 0;
-    transform: scale(1);
-  }
-  .fade-enter-active {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 300ms, transform 300ms;
-  }
-  
-  .fade-exit {
-    opacity: 1;
-    transform: scale(1);
-  }
-  .fade-exit-active {
-    opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 200ms, transform 200ms;
-  }
+    .fade-enter {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    .fade-enter-active {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 300ms, transform 300ms;
+    }
+    
+    .fade-exit {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .fade-exit-active {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 300ms, transform 300ms;
+    }
+    
