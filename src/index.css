@@ -71,11 +71,11 @@
     }
 
     .card{
-      @apply flex flex-col align-top items-center bg-white rounded-md shadow-3xl w-64 h-96 tablet:w-72 tablet:h-[480px]
+      @apply flex flex-col align-top items-center bg-white rounded-md shadow-3xl w-96 h-96  tablet:h-[480px]
       toten:w-[280px] toten:h-[415px] 2xdesktop:w-[480px] 2xdesktop:h-full 
     }
     .title-primary {
-      @apply font-black text-6xl text-bb-blue p-8 laptop:p-8 capitalize
+      @apply tablet:font-black text-6xl font-semibold text-bb-blue p-8 laptop:p-8 capitalize
       desktop:text-5xl desktop:p-2 laptop:pb-2 laptop:text-5xl 2xdesktop:text-7xl
 
     }
@@ -84,7 +84,7 @@
 
     }
     .text-primary{
-      @apply font-normal text-3xl mx-24 pb-4 laptop:p-2
+      @apply font-normal text-xl tablet:text-3xl mx-2 toten:mx-24 pb-4 laptop:p-2
       desktop:text-2xl laptop:text-2xl desktop:mx-12 tablet:mx-10 
       2xdesktop:text-3xl
     }
