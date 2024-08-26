@@ -67,13 +67,13 @@ export const StepTwo = ({setSection}:props) => {
     // },[handleTime])
     
     return (
-        <div className=' flex flex-col h-screen w-full bg-vertical bg-cover gap-0' >
+        <div className=' flex flex-col h-screen w-full bg-bb-yellow tablet:bg-vertical bg-cover gap-0' >
             <div className= ' h-full flex flex-1 w-full flex-col gap-5 desktop:gap-2 mt-16 2xdesktop:gap-10 tablet:mt-24 desktop:mt-2 2xdesktop:mt-12 text-center items-center '>
                 <div >
                     <h1 className='title-primary '>Vantagens para você</h1>
                     <p className='text-primary '>Abra sua conta corrente completa, totalmente digital, e simplifique sua vida financeira.</p>
                 </div>
-                <div className=' desktop:w-[100%] tablet:w-[100%] toten:w-auto tablet:overflow-auto tablet:pl-4 
+                <div className=' desktop:w-[100%] w-[100%] toten:w-auto overflow-auto px-4 
                 flex toten:inline-grid toten:grid-cols-3 gap-6 desktop:gap-4 desktop:flex desktop:overflow-auto 
                 2xdesktop:justify-start desktop:justify-center'>
                         {data.map((item) => (
@@ -82,11 +82,11 @@ export const StepTwo = ({setSection}:props) => {
                             </div>
                         ))}
                 </div>
-                <Button setSection={setSection} text='ABRIR SUA CONTA DIGITAL AGORA' style='btn-blue m-2 ' />
+                <Button text='' setSection={setSection} style='btn-blue m-2 ' />
                 
             </div>
 
-            <div className=' flex-1 w-full content-end '>
+            <div className='  flex-1 w-full content-end '>
                 <Footer style='' />
 
             </div>
