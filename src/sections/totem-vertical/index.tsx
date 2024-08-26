@@ -9,7 +9,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import '../../index.css';
 
 export const TotemVertical = () => {
-  const [section, setSection] = useState<number>(2);
+  const [section, setSection] = useState<number>(1);
 
   const requestFullscreen = () => {
     const elem = document.documentElement;

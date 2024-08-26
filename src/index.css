@@ -71,7 +71,7 @@
     }
 
     .card{
-      @apply flex flex-col align-top items-center bg-white rounded-md shadow-3xl w-96 h-80  tablet:h-[480px]
+      @apply flex flex-col align-top items-center bg-white rounded-md shadow-3xl w-96 h-96  tablet:h-[480px]
       toten:w-[280px] toten:h-[415px] 2xdesktop:w-[480px] 2xdesktop:h-full 
     }
     .title-primary {
@@ -84,7 +84,7 @@
 
     }
     .text-primary{
-      @apply font-normal text-lg tablet:text-3xl mx-2 toten:mx-24 pb-4 laptop:p-2
+      @apply font-normal text-lg tablet:text-3xl mx-2 toten:mx-24 tablet:pb-4 laptop:p-2
       desktop:text-2xl laptop:text-2xl desktop:mx-12 tablet:mx-10 
       2xdesktop:text-3xl
     }

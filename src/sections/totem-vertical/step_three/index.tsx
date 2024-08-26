@@ -66,30 +66,30 @@ export const StepThree = ({setSection}:props) => {
     
 
     return (
-        <div className='flex flex-col w-full  bg-formulario h-full bg-cover gap-4  desktop:justify-center' >
+        <div className='flex flex-col w-full bg-bb-yellow tablet:bg-formulario h-full bg-cover gap-4 pt-10  desktop:justify-center' >
             
             <div className= ' flex w-full flex-col tablet:mt-12 toten:mt-24  desktop:mt-0 text-center items-center'>
                 <div>
-                    <h1 className='title-primary'>Vantagens para você</h1>
-                    <p className='text-primary'>Insira seus dados e envie o formulário para criar sua conta agora mesmo!</p>
+                    <h1 className='title-primary '>Preencha o formulário</h1>
+                    <p className='text-primary text-xl'>Insira seus dados e envie o formulário para criar sua conta agora mesmo!</p>
                 </div>
                 
                 
-                <form onSubmit={handleSubmit(onSubmit)} className=' flex flex-col flex-1 gap-2 desktop:gap-4 mt-4'>
+                <form onSubmit={handleSubmit(onSubmit)} className='px-4 flex flex-col w-full flex-1 gap-4 desktop:gap-4 mt-4'>
                 
-                        <input className={`${errors.nome ? 'border-red-600 border-4 placeholder:text-red-400': '' } w-[700px] desktop:w-[840px] h-16 text-2xl p-4 `} 
+                        <input className={`  ${errors.nome ? 'border-red-600 border-4 placeholder:text-red-400': '' } w-[100%] desktop:w-[840px] h-16 text-2xl p-4 `} 
                         placeholder={errors.nome? errors.nome.message: 'Nome'} {...register('nome')} />
                         
-                        <input className={`${errors.email ? 'border-red-600 border-4 placeholder:text-red-400 ': '' }w-[700px] desktop:w-[840px] h-16 text-2xl p-4`}  placeholder={errors.email? errors.email.message: 'Email'}   {...register('email')}/>
-                        <InputMask className={`${errors.cpf ? 'border-red-600 border-4 placeholder:text-red-400 ': '' } w-[700px] desktop:w-[840px] h-16 text-2xl p-4`} placeholder={errors.cpf? errors.cpf.message: 'CPF'} mask="999.999.999-99" inputMode='numeric' {...register('cpf')}/>
-                        <InputMask className={`${errors.whatsapp ? 'border-red-600 border-4 placeholder:text-red-400 ': '' }w-[700px] desktop:w-[840px] h-16 text-2xl p-4`} placeholder={errors.whatsapp? errors.whatsapp.message: 'WhatsApp'} inputMode='numeric' mask="(99)99999-9999"  {...register('whatsapp')}/>
+                        <input className={`${errors.email ? 'border-red-600 border-4 placeholder:text-red-400 ': '' } desktop:w-[840px] h-16 text-2xl p-4`}  placeholder={errors.email? errors.email.message: 'Email'}   {...register('email')}/>
+                        <InputMask className={`${errors.cpf ? 'border-red-600 border-4 placeholder:text-red-400 ': '' } desktop:w-[840px] h-16 text-2xl p-4`} placeholder={errors.cpf? errors.cpf.message: 'CPF'} mask="999.999.999-99" inputMode='numeric' {...register('cpf')}/>
+                        <InputMask className={`${errors.whatsapp ? 'border-red-600 border-4 placeholder:text-red-400 ': '' } desktop:w-[840px] h-16 text-2xl p-4`} placeholder={errors.whatsapp? errors.whatsapp.message: 'WhatsApp'} inputMode='numeric' mask="(99)99999-9999"  {...register('whatsapp')}/>
                                 
                         
-                    <input className='btn-blue place-self-center mt-6' type='submit' value='ENVIAR'/>
+                    <input className='btn-blue place-self-center text-4xl mt-6' type='submit' value='ENVIAR'/>
                 </form>
             </div>
-                <div className=''>
-                    <Footer style="tablet:hidden desktop:" />
+                <div className='absolute bottom-0 w-full '>
+                    <Footer style="tablet:hidden " />
                 </div>
    
            

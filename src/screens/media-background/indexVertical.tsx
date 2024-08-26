@@ -12,12 +12,12 @@ export const MediaBackground = ({ setSection }: props) => {
 
 
   return (
-    <div onClick={() => setSection((e) => e + 1)} className=' bg-bb-yellow flex  justify-center items-center'>
+    <div onClick={() => setSection((e) => e + 1)} className=' bg-bb-yellow flex justify-center items-center'>
 
       <video
         ref={videoRef}
         
-        className="h-screen  z-0 opacity-100 ease-in-out"
+        className="h-screen object-cover object-center z-0 opacity-100 ease-in-out"
         autoPlay
         muted
         src={beneficio}

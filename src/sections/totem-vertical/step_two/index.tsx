@@ -68,7 +68,7 @@ export const StepTwo = ({setSection}:props) => {
     
     return (
         <div className=' flex flex-col h-screen w-full bg-bb-yellow tablet:bg-vertical bg-cover gap-0' >
-            <div className= ' h-full flex flex-1 w-full flex-col gap-5 desktop:gap-2 mt-16 2xdesktop:gap-10 tablet:mt-24 desktop:mt-2 2xdesktop:mt-12 text-center items-center '>
+            <div className= ' h-full flex flex-1 w-full flex-col gap-5 desktop:gap-2 mt-8 toten:mt-16 2xdesktop:gap-10 tablet:mt-24 desktop:mt-2 2xdesktop:mt-12 text-center items-center '>
                 <div >
                     <h1 className='title-primary '>Vantagens para você</h1>
                     <p className='text-primary '>Abra sua conta corrente completa, totalmente digital, e simplifique sua vida financeira.</p>
