@@ -17,7 +17,7 @@ export const MediaBackground = ({ setSection }: props) => {
       <video
         ref={videoRef}
         
-        className="h-screen object-cover object-center z-0 opacity-100 ease-in-out"
+        className="w-screen h-screen object-cover object-center z-0 opacity-100 ease-in-out"
         autoPlay
         muted
         src={beneficio}

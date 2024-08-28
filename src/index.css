@@ -71,8 +71,8 @@
     }
 
     .card{
-      @apply flex flex-col align-top items-center bg-white rounded-md shadow-3xl w-96 h-96  tablet:h-[480px]
-      toten:w-[280px] toten:h-[415px] 2xdesktop:w-[480px] 2xdesktop:h-full 
+      @apply flex flex-col align-top items-center bg-white rounded-md w-96 h-96  tablet:h-[480px]
+      toten:w-[280px] toten:h-[410px] 2xdesktop:w-[480px] 2xdesktop:h-full 
     }
     .title-primary {
       @apply tablet:font-black text-5xl tablet:text-6xl font-semibold text-bb-blue p-8 laptop:p-8 capitalize
