@@ -1,36 +1,61 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Background } from "./step_one/index";
 import { StepTwo } from "./step_two/index";
 import { StepThree } from "./step_three";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import '../../index.css'
 import { StepFour } from "./step_four";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import '../../index.css';
+import BasicModal from "../../components/modal";
+
 export const TotemVertical = () => {
   const [section, setSection] = useState<number>(1);
-  const Stepper = () => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
-    if (section === 1) return <Background setSection={setSection} />;
-
-    if (section === 2) return <StepTwo setSection={setSection} />;
-
-    if(section == 3) return <StepThree setSection={setSection} />
-    
-    if(section == 4) return <StepFour setSection={setSection} />
-
+  const isIOS = () => {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent)
   }
+  
+  const enterFullscreen = () => {
+      if (containerRef.current) {
+        if (containerRef.current.requestFullscreen) {
+          containerRef.current.requestFullscreen().catch(err => {
+            console.log('Erro ao entrar em tela cheia', err);
+          });
+        }
+      }
+    };
 
+
+  const renderStep = () => {
+    switch (section) {
+      case 1:
+        return <Background setSection={setSection} />;
+      case 2:
+        return <StepTwo setSection={setSection} />;
+      case 3:
+        return <StepThree setSection={setSection} />;
+      case 4:
+        return <StepFour setSection={setSection} />;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <div className="w-[1080px] h-[1920px]">
-
-    <TransitionGroup className='h-full w-full'>
-      <CSSTransition key={section} timeout={300} classNames="fade">
-        {Stepper()}
-      </CSSTransition>
-    </TransitionGroup>
+    <div ref={containerRef} className="w-full h-full">
+      <BasicModal handleClick={enterFullscreen} />
+      <TransitionGroup component={null}>
+        <CSSTransition
+          key={section}
+          timeout={300}
+          classNames="fade"
+          unmountOnExit
+        >
+          <div className="h-full">{renderStep()}</div>
+        </CSSTransition>
+      </TransitionGroup>
     </div>
   );
-
 };

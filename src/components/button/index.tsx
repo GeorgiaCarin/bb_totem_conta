@@ -9,6 +9,6 @@ export const Button = ({text,style,setSection}:Props) => {
         setSection((e) => e +1)
     }
     return  (
-        <button onClick={handleClick} className={`${style} mt-16`}>{text}</button>
+        <button onClick={handleClick} className={`${style} `}>{text}</button>
     )
 } 

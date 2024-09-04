@@ -80,7 +80,7 @@ export const MediaBackground = ({setSection}:props) => {
     <>
       <div className="absolute z-1 top-0 left-0"></div>
       <video ref={videoRefs[0]} className=" absolute z-0 w-100 h-100 object-cover opacity-100 ease-in-out" autoPlay muted />
-      <video ref={videoRefs[1]} className="absolute z-0 w-100 h-100 object-cover opacity-100 ease-in-out" autoPlay muted />
+      <video ref={videoRefs[1]} className=" div-view absolute z-0 w-100 h-100 object-cover opacity-100 ease-in-out" autoPlay muted />
       <img ref={imageRef} className="absolute z-0 w-100 h-100 object-cover opacity-100 ease-in-out" alt="Background" />
       <div onClick={() => setSection((e) => e + 1 )} className=" w-full h-full bg-black/75 p-4 blue-layout text-primary z-10 absolute flex flex-col justify-center items-center translate-x-50 ">
           <p className="text-bb-secundary text-xl md:text-5xl lg:text-6xl font-bold text-shadow">

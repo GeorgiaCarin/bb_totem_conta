@@ -39,7 +39,8 @@ export default {
         qrcode: "url('./src/assets/bg_qrcode.png')",
         secondary: "url('./src/assets/background2.png')",
         conta: "url('./src/assets/bg_conta_inicio.png')",
-        dados: "url('./src/assets/bg_dados.png')"
+        dados: "url('./src/assets/bg_dados.png')",
+        qrcodeh: "url('./src/assets/bg_qrcode2.png')"
 
       },
       animation: {
@@ -48,9 +49,10 @@ export default {
       screens: {
         'tablet' : '640px',
         'laptop': '1024px',
-        'tab7': '2000px',
-        'desktop': '1280px',
         'toten': '1080px',
+        'desktop': '1280px',
+        '2xdesktop': '1920px',
+        'tv': '2560px',
       }
       
     },

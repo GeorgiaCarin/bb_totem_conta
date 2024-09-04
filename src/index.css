@@ -58,7 +58,8 @@
       @apply uppercase text-4xl font-bold bg-bb-yellow border-bb-lightyellow border-4 px-12 py-3 hover:bg-bb-lightyellow text-black duration-300 ease-in-out
     }
     .btn-blue{
-      @apply uppercase text-4xl font-bold bg-bb-blue border-bb-lblue border-4 px-12 py-3 hover:bg-bb-lblue text-white duration-300 ease-in-out
+      @apply uppercase text-2xl tablet:text-4xl font-bold bg-bb-blue rounded-xl px-6 tablet:px-12 py-4 hover:bg-bb-lblue text-white duration-300 ease-in-out
+      laptop:px-7 laptop:text-2xl desktop:text-2xl 2xdesktop:text-4xl before:content-['Abra_sua_Conta'] tablet:before:content-['Abra_sua_Conta_digital_agora']
 
     }
     .btn-disabled{
@@ -70,10 +71,12 @@
     }
 
     .card{
-      @apply flex flex-col  align-top items-center bg-white rounded-md shadow-3xl w-[280px] h-[415px]
+      @apply flex flex-col align-top items-center bg-white rounded-md w-96 h-96  tablet:h-[480px]
+      toten:w-[280px] toten:h-[410px] 2xdesktop:w-[480px] 2xdesktop:h-full 
     }
     .title-primary {
-      @apply font-black text-6xl text-bb-blue p-10  capitalize
+      @apply tablet:font-black text-5xl tablet:text-6xl font-semibold text-bb-blue p-8 laptop:p-8 capitalize
+      desktop:text-5xl desktop:p-2 laptop:pb-2 laptop:text-5xl 2xdesktop:text-7xl
 
     }
     .title-secundary {
@@ -81,31 +84,37 @@
 
     }
     .text-primary{
-      @apply font-normal text-3xl w-[763px]
+      @apply font-normal text-lg tablet:text-3xl mx-2 toten:mx-24 tablet:pb-4 laptop:p-2
+      desktop:text-2xl laptop:text-2xl desktop:mx-12 tablet:mx-10 
+      2xdesktop:text-3xl
     }
     
     .text-shadow{
       @apply drop-shadow-[3px_3px_rgba(42,102,242,1)]
     }
 
+    .form-input {
+      @apply w-[100%] h-16 tv:w-full tv:text-4xl tv:h-24 text-2xl p-4 
+    }
+  }
     
-  }
-  .fade-enter {
-    opacity: 0;
-    transform: scale(1);
-  }
-  .fade-enter-active {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 300ms, transform 300ms;
-  }
-  
-  .fade-exit {
-    opacity: 1;
-    transform: scale(1);
-  }
-  .fade-exit-active {
-    opacity: 0;
-    transform: scale(0.95);
-    transition: opacity 200ms, transform 200ms;
-  }
+    .fade-enter {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    .fade-enter-active {
+      opacity: 1;
+      transform: scale(1);
+      transition: opacity 300ms, transform 300ms;
+    }
+    
+    .fade-exit {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .fade-exit-active {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 300ms, transform 300ms;
+    }
+    

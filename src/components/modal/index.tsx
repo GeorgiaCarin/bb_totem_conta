@@ -1,42 +1,51 @@
-import { Fade, Modal } from "@mui/material";
+import * as React from 'react';
+import Box from '@mui/material/Box';
 
-import qrcode from '../../assets/qrcode.png'
-import { Button } from "../button";
-type Props = {
-  open: boolean;
-  setSection: React.Dispatch<React.SetStateAction<number>>
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+import { Button, Stack } from '@mui/material';
 
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+ 
+  boxShadow: 24,
+  p: 4,
 };
+interface props {
+  handleClick: () => void;
+}
+export default function BasicModal({handleClick}:props) {
+  const [open, setOpen] = React.useState(true);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-export const ModalDefault = ({ open,setSection }: Props) => (
-  <Modal
+  return (
+    <div >
+      
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Permitir tela cheia?
+          </Typography>
+          <Stack spacing={2} direction='row'>
+            <Button variant='contained' onClick={handleClick}>Permitir</Button>
+            <Button variant='outlined' onClick={handleClose}>Não Permitir</Button>        
 
-    open={open}
+          </Stack>
 
-    closeAfterTransition
-
-    slotProps={{
-      backdrop: {
-        timeout: 500,
-      },
-    }}
-    sx={{
-      border: "1px solid red",
-      width: '1080',
-      height: '1920'
-    }}
-  >
-    <Fade in={open}>
-      <div className=" flex flex-col items-center w-[1080px] h-[1920px] bg-qrcode bg-cover gap-16 text-center ">
-    
-                <div className="mt-24 items-center">
-                    <h1 className='title-primary text-bb-yellow'>Parabéns</h1>
-                    <p className='text-primary text-white leading-[40px]'>Agora aponte a câmera do seu celular para op QRCODE
-                    para iniciar a abertura de sua conta no Whatsapp.</p>
-                </div>
-                    <img className="w-[420px] border-[20px]" src={qrcode} alt="" />
-                    <button onClick={() =>setSection(1)} className="btn-ylw">CONCLUIR</button>
-      </div>
-    </Fade>
-  </Modal>
-)
+          </Box>
+      </Modal>
+    </div>
+  );
+}
