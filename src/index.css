@@ -92,6 +92,10 @@
     .text-shadow{
       @apply drop-shadow-[3px_3px_rgba(42,102,242,1)]
     }
+
+    .form-input {
+      @apply w-[100%] h-16 tv:w-full tv:text-4xl tv:h-24 text-2xl p-4 
+    }
   }
     
     .fade-enter {

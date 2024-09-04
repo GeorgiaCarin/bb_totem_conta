@@ -8,7 +8,7 @@ import cashback from '../../../assets/CashBack.png'
 import shopping from '../../../assets/shoppingBB.png'
 import facilidade from '../../../assets/Facilidade.png'
 import { Button } from '../../../components/button'
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { Footer } from '../../../components/footer'
 
 type props = {
@@ -55,20 +55,30 @@ const data : dataProps[] = [
     },
 ]
 export const StepTwo = ({setSection}:props) => {
-    // const handleTime = useCallback(() => {
-    //     console.log('começando')
-    //     setTimeout(() => {
-    //         setSection(1)
-    //     }, 240000);
-    // },[setSection])
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+    const handleTime = useCallback(() => {
+        console.log('começando')
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+        }
+    
+        timeoutRef.current = setTimeout(() => {
+            setSection(1)
+        }, 240000);
+    },[setSection])
    
-    // useEffect(() => {
-    //  handleTime()
-    // },[handleTime])
+    useEffect(() => {
+     handleTime()
+     return () => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+        }
+    }
+    },[handleTime])
     
     return (
-        <div className='flex flex-col h-full w-screen bg-bb-yellow tablet:bg-vertical bg-cover gap-0'>
-            <div className='h-full flex w-full flex-col gap-4 desktop:gap-2 mt-8 toten:mt-16 2xdesktop:gap-10 tablet:mt-24 desktop:mt-[2%] text-center items-center'>
+        <div className='flex flex-col h-full w-screen bg-bb-yellow tablet:bg-vertical bg-cover gap-0' onClick={handleTime}>
+            <div className='h-full flex w-full flex-col gap-4 desktop:gap-2 mt-8 toten:mt-16 2xdesktop:gap-10  tablet:mt-24 desktop:mt-[2%] text-center items-center'>
                 <div>
                     <h1 className='title-primary py-2'>Vantagens para você</h1>
                     <p className="text-primary before:content-['Confira_as_Vantagens_da_Conta_Corrente_Digital_BB'] tablet:before:content-['Abra_sua_conta_corrente_completa,_totalmente_digital,_e_simplifique_sua_vida_financeira.']"></p>

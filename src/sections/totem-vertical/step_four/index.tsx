@@ -3,17 +3,40 @@ import qrcode from '../../../assets/qrcode.png'
 import woman from '../../../assets/woman_qrcode.png'
 import homem from '../../../assets/homem.png'
 import homemDesktop from '../../../assets/homemDesktop.png'
+import { useCallback, useEffect, useRef } from 'react'
 type props = {
      setSection : React.Dispatch<React.SetStateAction<number>>
 
 }
 
 export const StepFour = ({ setSection}:props) => {
-  
+    const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+    const handleTime = useCallback(() => {
+        console.log('começando')
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+        }
+    
+        timeoutRef.current = setTimeout(() => {
+            setSection(1)
+        }, 60000);
+    },[setSection])
+   
+    useEffect(() => {
+     handleTime()
+     return () => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current)
+        }
+    }
+    },[handleTime])
+    
     
     return (
         <div className=" relative flex flex-col toten:bg-qrcode h-full tablet:bg-none desktop:bg-none pt-[5%]
-        items-center bg-bb-blue border-bb-yellow border-8 tablet:border-0 laptop:border-8 laptop:border-bb-yellow desktop:border-[20px] toten:bg-cover gap-5 text-center ">
+        items-center bg-bb-blue border-bb-yellow border-8 tablet:border-0 laptop:border-8 laptop:border-bb-yellow desktop:border-[20px] toten:bg-cover gap-5 text-center "
+        onClick={handleTime}
+        >
       
                   <div className="  tablet:mt-4 toten:mt-24 desktop:mt-0 desktop:items-center">
                       <h1 className=' title-primary laptop:p-0  text-bb-yellow 2xdesktop:text-8xl 2xdesktop:mt-0 '>Parabéns</h1>

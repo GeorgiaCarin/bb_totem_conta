@@ -10,10 +10,13 @@ import '../../index.css';
 import BasicModal from "../../components/modal";
 
 export const TotemVertical = () => {
-  const [section, setSection] = useState<number>(2);
+  const [section, setSection] = useState<number>(1);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  // Tentar entrar em tela cheia após o usuário interagir
+  const isIOS = () => {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent)
+  }
+  
   const enterFullscreen = () => {
       if (containerRef.current) {
         if (containerRef.current.requestFullscreen) {

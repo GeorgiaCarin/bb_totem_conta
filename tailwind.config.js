@@ -52,6 +52,7 @@ export default {
         'toten': '1080px',
         'desktop': '1280px',
         '2xdesktop': '1920px',
+        'tv': '2560px',
       }
       
     },
